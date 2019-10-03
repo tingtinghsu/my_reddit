@@ -1,29 +1,29 @@
 
-<h1 class="text-secondary">連結</h1>
-
-
+  <div class="clearfix">
     <% @links.each do |link| %>
-      <div class="clearfix">
-
-          <div class="btn-group">
-            <h3 class="text-info">
-              <a href="<%= link.link %>", target="_blank">
-                <%= link.title %><br>
-              </a>
-            </h3>
-              Last edited: <%= time_ago_in_words(link.updated_at) %> by <%= link.user.email %> <br><br>
-              <%= link_to '詳情', link, class: "btn btn-primary" %>
-              <% if link.user == current_user %>
-
-                <%= link_to '編輯', edit_link_path(link), class: "btn btn-info" %>
-                <%= link_to '刪除', link, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-                <br>
-
-              <% end %>
-              <hr> 
-          </div>
-        </tr>
-      </div>
+      <h3 class="text-info">
+        <a href="<%= link.link %>", target="_blank">
+          <%= link.title %>  
+        </a>
+      </h3>
+        Last edited: <%= time_ago_in_words(link.updated_at) %> by <%= link.user.email %> <br><br>
+        <div class="btn-group">
+          <%= link_to '詳情', link, class: "btn btn-primary btn-sm" %>      
+          <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-chevron-up"></span>
+            Upvote: <%= link.get_upvotes.size %>
+          <% end %>
+          <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-chevron-down"></span>
+            Downvote: <%= link.get_downvotes.size %>
+          <% end %>
+        </div>
+        <div><br>
+          <% if link.user == current_user %>
+            <%= link_to '編輯', edit_link_path(link), class: "btn btn-info" %>
+            <%= link_to '刪除', link, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          <% end %>
+        </div>
+        <hr> 
     <% end %>
-
-<br>
+  </div>

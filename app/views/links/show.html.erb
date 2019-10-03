@@ -4,6 +4,16 @@
   <h4 class="text-info">
     <%= @link.link %><br>
   </h4>
+  <div class="btn-group pull-right">
+    <%= link_to like_link_path(@link), method: :put, class: "btn btn-default btn-sm" do %>
+      <span class="glyphicon glyphicon-chevron-up"></span>
+      Upvote: <%= @link.get_upvotes.size %>
+    <% end %>
+    <%= link_to dislike_link_path(@link), method: :put, class: "btn btn-default btn-sm" do %>
+      <span class="glyphicon glyphicon-chevron-down"></span>
+      Downvote: <%= @link.get_downvotes.size %>
+    <% end %>
+  </div>
 <hr>
 <%= link_to '編輯', edit_link_path(@link), class: "btn btn-primary" %> |
 <%= link_to '上一頁', links_path, class: "btn btn-default" %>

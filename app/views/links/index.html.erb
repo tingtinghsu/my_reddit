@@ -1,19 +1,17 @@
-<p id="notice"><%= notice %></p>
 
-<h1 class="text-primary">連結</h1>
+<h1 class="text-secondary">連結</h1>
 
 
     <% @links.each do |link| %>
       <div class="clearfix">
 
           <div class="btn-group">
-            <h3 class="text-muted" >
-              <%= link.title%><br>
+            <h3 class="text-info">
+              <a href="<%= link.link %>", target="_blank">
+                <%= link.title %><br>
+              </a>
             </h3>
-            <h4 class="text-info">
-              <%= link.link %><br>
-            </h4>
-              Last edited: <%= time_ago_in_words(link.updated_at) %> <br><br>
+              Last edited: <%= time_ago_in_words(link.updated_at) %> by <%= link.user.email %> <br><br>
               <%= link_to '詳情', link, class: "btn btn-primary" %>
               <% if link.user == current_user %>
 

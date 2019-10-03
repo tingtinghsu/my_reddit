@@ -15,3 +15,21 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#logo {
+	font-size: 26px;
+	font-weight: 500;
+	letter-spacing: -1px;
+	padding: 15px 0;
+	a {
+    color: rgb(49, 40, 75);
+    text-decoration: none;
+	}
+}
+#main_content {
+  #content {
+			a {
+        text-decoration: none;
+			}
+		}
+}

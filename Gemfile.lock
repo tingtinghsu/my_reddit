@@ -155,6 +155,8 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    record_tag_helper (1.0.0)
+      actionview (~> 5.x)
     regexp_parser (1.6.0)
     responders (3.0.0)
       actionpack (>= 5.0)
@@ -177,6 +179,9 @@ GEM
     selenium-webdriver (3.142.5)
       childprocess (>= 0.5, < 3.0)
       rubyzip (>= 1.2.2)
+    simple_form (5.0.0)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -229,8 +234,10 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.11)
   rails (~> 5.2.3)
+  record_tag_helper (~> 1.0)
   sass-rails (~> 5.0)
   selenium-webdriver
+  simple_form (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

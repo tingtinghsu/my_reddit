@@ -4,16 +4,39 @@
   <h4 class="text-info">
     <%= @link.link %><br>
   </h4>
-  <div class="btn-group pull-right">
-    <%= link_to like_link_path(@link), method: :put, class: "btn btn-default btn-sm" do %>
-      <span class="glyphicon glyphicon-chevron-up"></span>
-      Upvote: <%= @link.get_upvotes.size %>
-    <% end %>
-    <%= link_to dislike_link_path(@link), method: :put, class: "btn btn-default btn-sm" do %>
-      <span class="glyphicon glyphicon-chevron-down"></span>
-      Downvote: <%= @link.get_downvotes.size %>
+  <div class="vote_section">
+    <div class="btn-group pull-right">
+      <%= link_to like_link_path(@link), method: :put, class: "btn btn-default btn-sm" do %>
+        <span class="glyphicon glyphicon-chevron-up"></span>
+        Upvote: <%= @link.get_upvotes.size %>
+      <% end %>
+      <%= link_to dislike_link_path(@link), method: :put, class: "btn btn-default btn-sm" do %>
+        <span class="glyphicon glyphicon-chevron-down"></span>
+        Downvote: <%= @link.get_downvotes.size %>
+      <% end %>
+    </div>
+  </div>
+  <br>
+
+  <%= link_to '編輯', edit_link_path(@link), class: "btn btn-primary" %> |
+  <%= link_to '上一頁', links_path, class: "btn btn-default" %>  
+  <hr>  
+  <div class="comment_section">
+    <h3 class="comments_title">
+      目前有<%= @link.comments.count %>則評論
+    </h3>
+    <div id="comments">
+      <%= render partial: @link.comments %>
+    </div>
+
+    <% if @link.user == current_user %>   
+      <%= simple_form_for [@link, Comment.new] do |f| %>
+        <div class="field">
+          <%= f.text_area :body, class: "form-control" %>
+        </div>
+      <br>
+      <%= f.submit "留下評論", class: "btn btn-primary" %>
+      <% end %>
     <% end %>
   </div>
-<hr>
-<%= link_to '編輯', edit_link_path(@link), class: "btn btn-primary" %> |
-<%= link_to '上一頁', links_path, class: "btn btn-default" %>
+

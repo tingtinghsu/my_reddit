@@ -16,6 +16,8 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'jquery-rails'
 gem 'acts_as_votable', '~> 0.12.1'
+gem 'simple_form', '~> 5.0'
+gem 'record_tag_helper', '~> 1.0'
 
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes

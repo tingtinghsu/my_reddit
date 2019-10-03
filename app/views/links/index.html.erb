@@ -1,29 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Links</h1>
+<h1 class="text-primary">連結</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Link</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
     <% @links.each do |link| %>
-      <tr>
-        <td><%= link.title %></td>
-        <td><%= link.link %></td>
-          <td><%= link_to 'Show', link %></td>
-          <% if link.user == current_user %>
-            <td><%= link_to 'Edit', edit_link_path(link) %></td>
-            <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
+      <div class="clearfix">
+
+          <div class="btn-group">
+            <h3 class="text-muted" >
+              <%= link.title%><br>
+            </h3>
+            <h4 class="text-info">
+              <%= link.link %><br>
+            </h4>
+              Last edited: <%= time_ago_in_words(link.updated_at) %> <br><br>
+              <%= link_to '詳情', link, class: "btn btn-primary" %>
+              <% if link.user == current_user %>
+
+                <%= link_to '編輯', edit_link_path(link), class: "btn btn-info" %>
+                <%= link_to '刪除', link, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+                <br>
+
+              <% end %>
+              <hr> 
+          </div>
         </tr>
+      </div>
     <% end %>
-  </tbody>
-</table>
 
 <br>

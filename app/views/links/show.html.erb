@@ -1,14 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @link.title %>
-</p>
-
-<p>
-  <strong>Link:</strong>
-  <%= @link.link %>
-</p>
-
-<%= link_to 'Edit', edit_link_path(@link) %> |
-<%= link_to 'Back', links_path %>
+  <h3 class="text-muted" >
+    <%= @link.title%><br>
+  </h3>
+  <h4 class="text-info">
+    <%= @link.link %><br>
+  </h4>
+<hr>
+<%= link_to 'Edit', edit_link_path(@link), class: "btn btn-primary" %> |
+<%= link_to 'Back', links_path, class: "btn btn-default" %>

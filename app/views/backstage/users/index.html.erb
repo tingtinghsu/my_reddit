@@ -1,0 +1,4 @@
+<% @users.each do |user| %>
+  <%= user.name %><%= " (admin)" if user.is_admin? %><br>
+
+<% end %>

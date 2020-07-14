@@ -1,7 +1,8 @@
 class Backstage::LinksController < ApplicationController
   before_action :admin_auth
   def index 
-    @user = User.find(param[:user_id])
+    @user = User.find(params[:user_id])
+    @links = @user.links 
   end
 
   private

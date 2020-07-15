@@ -5,6 +5,12 @@ class Backstage::LinksController < ApplicationController
     @links = @user.links 
   end
 
+  def destroy
+    @link = Link.find(params[:id])
+    @link.delete!
+    redirect_to backstage_user_links_path(params[:user_id])
+  end
+
   private
   def admin_auth
     redirect_to root_path unless current_user.present? && current_user.is_admin?

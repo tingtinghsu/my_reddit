@@ -1,3 +1,5 @@
 <% @links.each do |link| %>
-  <%= link.title %><br>
+  <%= link.title %>
+  <%= link_to "delete", backstage_user_link_path(@user, link), method: :delete if link.switch %> 
+  <br> 
 <% end %>

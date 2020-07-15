@@ -4,8 +4,9 @@ class LinksController < ApplicationController
   before_action :authorized_user, only: [:edit, :update, :destroy]
   # GET /links
   # GET /links.json
+
   def index
-    @links = Link.all
+    @links = Link.alive
   end
 
   # GET /links/1

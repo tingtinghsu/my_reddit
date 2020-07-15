@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_14_085838) do
+ActiveRecord::Schema.define(version: 2020_07_14_122223) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "link_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_07_14_085838) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.boolean "switch", default: true
     t.index ["user_id"], name: "index_links_on_user_id"
   end
 
